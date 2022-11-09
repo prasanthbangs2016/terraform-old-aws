@@ -12,3 +12,6 @@ resource "null_resource" "null" {
     }
   
 }
+
+#to get aws account id for peering connection
+data "aws_caller_identity" "current" {}
