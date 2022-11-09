@@ -4,7 +4,7 @@ resource "aws_subnet" "main" {
   cidr_block = cidrsubnet(var.VPC_CIDR, 8, count.index)
 
      tags = {
-        Name    = "Subnet-${count.index}"
+        Name    = "Subnet-${count.index+1}"
         IACTOOL    = local.IAC
     }
 }
