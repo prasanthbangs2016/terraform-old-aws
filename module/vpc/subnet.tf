@@ -13,7 +13,7 @@ resource "aws_subnet" "public-subnets" {
 resource "aws_subnet" "private-subnets" {
   count     = length(data.aws_availability_zones.available.names)
   vpc_id    = aws_vpc.vpc.id
-  cidr_block = cidrsubnet(var.VPC_CIDR, 8, count.index)
+  cidr_block = cidrsubnet(var.VPC_CIDR, 8, count.index+1)
   #when we enable this it wont create public ip and will have private ip
   map_public_ip_on_launch = false
 
