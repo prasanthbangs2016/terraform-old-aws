@@ -2,3 +2,11 @@
 data "aws_availability_zones" "available" {
     state   = "available"
 }
+
+resource "null_resource" "null" {
+    provisioner "local-exec" {
+        command = "echo" ${length(data.aws_availability_zones.id)}
+      
+    }
+  
+}
