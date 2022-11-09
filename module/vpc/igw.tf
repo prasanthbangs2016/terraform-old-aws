@@ -6,3 +6,21 @@ resource "aws_internet_gateway" "gw" {
         IACTOOL    = local.IAC
     }
 }
+
+resource "aws_eip" "eip" {
+    tags = {
+        Name    = "${local.VPC_NAME}-EIP"
+        IACTOOL    = local.IAC
+    }
+}
+
+resource "aws_nat_gateway" "example" {
+  allocation_id = aws_eip.eip.id
+  subnet_id     = element(aws_subnet.public-subnets.*.id)
+
+  tags = {
+        Name    = "${local.VPC_NAME}-NGW"
+        IACTOOL    = local.IAC
+    }
+
+}
