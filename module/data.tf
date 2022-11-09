@@ -3,7 +3,7 @@ data "aws_availability_zones" "available" {
     state   = "available"
 }
 
-#to check
+#to check how manay availability zone available
 resource "null_resource" "null" {
     provisioner "local-exec" {
         #command = "echo ${data.aws_availability_zones.available.id)}"
