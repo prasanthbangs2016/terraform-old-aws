@@ -27,7 +27,7 @@ resource "aws_route_table" "route-table-public" {
 
 
    tags = {
-        Name        = "${local.VPC_NAME}-Private-Route-Table"
+        Name        = "${local.VPC_NAME}-public-Route-Table"
         IACTOOL     = local.IAC
     }
 }
