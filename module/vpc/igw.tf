@@ -14,7 +14,7 @@ resource "aws_eip" "eip" {
     }
 }
 
-resource "aws_nat_gateway" "example" {
+resource "aws_nat_gateway" "ngw" {
   allocation_id = aws_eip.eip.id
   #it will take 1st one and put it in subnet
   subnet_id     = element(aws_subnet.public-subnets.*.id, 0)

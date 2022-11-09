@@ -5,6 +5,10 @@ resource "aws_route_table" "route-table-private" {
     cidr_block = data.aws_vpc.management.cidr_block
     vpc_peering_connection_id = aws_vpc_peering_connection.default-vpc-to-roboshop-vpc.id
   }
+  route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.ngw.id
+  }
    tags = {
         Name        = "${local.VPC_NAME}-Private-Route-Table"
         IACTOOL     = local.IAC
