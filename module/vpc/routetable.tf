@@ -3,7 +3,7 @@ resource "aws_route_table" "route-table-private" {
 
   route {
     cidr_block = data.aws_vpc.management.cidr_block
-    vpc_peering_connection_id = aws_vpc_peering_connection.management-vpc-to-roboshop-vpc.id
+    vpc_peering_connection_id = aws_vpc_peering_connection.default-vpc-to-roboshop-vpc.id
   }
    tags = {
         Name        = "${local.VPC_NAME}-Private-Route-Table"
