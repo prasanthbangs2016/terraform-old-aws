@@ -15,3 +15,8 @@ resource "null_resource" "null" {
 
 #to get aws account id for peering connection
 data "aws_caller_identity" "current" {}
+
+#pulling default vpc id
+data "aws_vpc" "management" {
+    id = var.MANAGEMENT_VPC_ID
+}
