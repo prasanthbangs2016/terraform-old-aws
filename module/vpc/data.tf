@@ -20,3 +20,9 @@ data "aws_caller_identity" "current" {}
 data "aws_vpc" "management" {
     id = var.MANAGEMENT_VPC_ID
 }
+
+#pulling all the 6 route tables
+data "aws_route_tables" "management-vpc-route-table" {
+  vpc_id = var.MANAGEMENT_VPC_ID
+
+}
