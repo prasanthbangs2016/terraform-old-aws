@@ -1,7 +1,5 @@
 dev:
 	git pull
-	rm -rf .terraform
-	terrafile
 	terraform init 
 	terraform apply -auto-approve
 prod:
