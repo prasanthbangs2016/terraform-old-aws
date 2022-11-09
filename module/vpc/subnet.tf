@@ -16,6 +16,7 @@ resource "aws_subnet" "private-subnets" {
   cidr_block = cidrsubnet(var.VPC_CIDR, 8, count.index+1)
   #when we enable this it wont create public ip and will have private ip
   map_public_ip_on_launch = false
+  availability_zone = element(data.aws_availability_zones.available.names, count.index)
 
      tags = {
         Name    = "Roboshop-Dev-private-Subnet-${count.index+1}"
