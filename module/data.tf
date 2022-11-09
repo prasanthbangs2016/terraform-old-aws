@@ -7,7 +7,7 @@ data "aws_availability_zones" "available" {
 resource "null_resource" "null" {
     provisioner "local-exec" {
         #command = "echo ${data.aws_availability_zones.available.id)}"
-        command = "echo ${data.aws_availability_zones.*.id}"
+        command = "echo ${data.aws_availability_zones.available.id}"
       
     }
   
